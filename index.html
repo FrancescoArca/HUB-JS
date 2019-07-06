@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <title>HUB JS</title>
+</head>
+
+<body>
+
+
+    <!-- Navbar -->
+
+    <nav id="navbar" class="navbar navbar-light bg-warning">
+        <a class="navbar-brand mb-0 h1" href="#">
+            <img src="/img/note.svg" width="32" height="32" class="d-inline-block align-top" alt="logo">
+            Hub
+        </a>
+
+        <!-- Weather System -->
+        <ul class="list-inline mb-0">
+            <li class="list-inline-item">
+                <h5 class="location-timezone">Timezone</h5>
+            </li>
+            <li class="list-inline-item">
+                <canvas class="icon align-middle" width="40" height="40"></canvas>
+            </li>
+            <li class="list-inline-item">
+                <h6 class="temperature-degree">20°</h6>
+            </li>
+        </ul>
+    </nav>
+
+
+
+
+    <!-- Main -->
+    <div id="container" class="container">
+
+        <!-- Random Quote Generator -->
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card bg-warning mb-0">
+                    <div class="card-body">
+                        <blockquote id="quoteDisplay" class="blockquote mb-0">
+                        </blockquote>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="row">
+
+            <!-- Relax App -->
+            <div class="col-md-3">
+                <div class="card bg-warning mb-3">
+                    <div class="card-header">
+                        Time to Relax
+                        
+                    </div>
+                    
+                    <div id="relax" class="card-body">
+                            <h6 class="card-subtitle mb-3 text-muted text-center">Double click to play sounds!</h6>
+
+                        <button type="button" class="btn btn-primary btn-block"><img src="img/rain.svg" width="24" height="24" alt="Umbrella image">
+                            Rain
+                            <input type="range" class="form-control-range volume" min="1" max="100" value="20" id="formControlRange">
+                            <audio controls>
+                                <source src="audio/rain.ogg" type="audio/ogg">
+                                <source src="audio/rain.mp3" type="audio/mpeg">
+                            </audio></button>
+
+
+                        <button type="button" class="btn btn-primary btn-block"><img src="img/fire.svg" width="24" height="24" alt="Rain Image"> Fire<input type="range" class="form-control-range volume" min="1" max="100" value="20" id="formControlRange">
+                            <audio controls>
+                                <source src="audio/fire.ogg" type="audio/ogg">
+                                <source src="audio/fire.mp3" type="audio/mpeg">
+                            </audio></button>
+                        <button type="button" class="btn btn-primary btn-block"><img src="img/thunder.svg" width="24" height="24" alt="Thunder Image">Thunder<input type="range" class="form-control-range volume" min="1" max="100" value="20" id="formControlRange">
+                            <audio controls>
+                                <source src="audio/thunder.ogg" type="audio/ogg">
+                                <source src="audio/thunder.mp3" type="audio/mpeg">
+                            </audio></button>
+                    
+
+
+
+                    </div>
+                    <div id="relaxFooter" class="card-footer text-muted">
+                        <button type="button" class="btn btn-danger btn-block">Stop</button>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Note App -->
+            <div class="col-md-6">
+                <div class="card bg-warning mb-3">
+                    <div class="card-header">
+                        Note
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <textarea value="nota" class="form-control" id="textArea" rows="1"></textarea>
+                            </div>
+                        </form>
+
+                        <span id="alert"></span>
+
+                        <button type="button" type="submit" value="Submit" class="btn btn-primary btn-block" onclick="addNote()">Invia</button>
+                        <button type="button" type="reset" value="Reset" class="btn btn-danger btn-block" onclick="reset()">Reset</button>
+
+                        <hr>
+
+                        <ul id="lista" class="list-group">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pomodoro technique -->
+            <div class="col-md-3">
+                <div class="card bg-warning mb-3">
+                    <div class="card-header">
+                        Pomodoro technique
+                    </div>
+                    <div id="pomodoro" class="card-body">
+                        <button type="button" class="btn btn-primary btn-block">Start</button>
+                        <button type="button" class="btn btn-danger btn-block">Stop</button>
+
+                        <ul id="timer" class="list-inline text-center mt-3 h2">
+                            <li class="list-inline-item mr-0">00</li>
+                            <li class="list-inline-item mr-0">:</li>
+                            <li class="list-inline-item">00</li>
+                        </ul>
+
+                    </div>
+                    <div id="pomodoroFooter" class="card-footer text-muted">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/skycons.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
