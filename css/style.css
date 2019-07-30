@@ -1,0 +1,31 @@
+.btn-round-lg{
+  border-radius: 22.5px;
+  }
+  .btn-round{
+  border-radius: 17px;
+  }
+  .btn-round-sm{
+  border-radius: 15px;
+  }
+  .btn-round-xs{
+  border-radius: 11px;
+  padding-left: 10px;
+  padding-right: 10px;
+  }
+  
+  div .blue {
+    color: white;
+  }
+
+  .btn-danger {
+    background-color: #eb5c5c
+    !important;
+  }
+
+.volume {
+  display: none;
+}
+
+#weatherInfo {
+  display: none;
+}

@@ -1,163 +1,274 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/stylesheet.css">
-    <title>HUB JS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>HUB JS</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="blue lighten-5">
 
+  <!--Main Navigation-->
+  <header>
 
     <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark blue scrolling-navbar">
+      <div class="container-fluid">
 
-    <nav id="navbar" class="navbar navbar-light bg-warning">
-        <a class="navbar-brand mb-0 h1" href="#">
-            <img src="/img/note.svg" width="32" height="32" class="d-inline-block align-top" alt="logo">
-            Hub
-        </a>
+        <!-- Brand -->
+        <a class="navbar-brand waves-effect" href="#"><strong>HUB-JS</strong></a>
 
-        <!-- Weather System -->
-        <ul class="list-inline mb-0">
-            <li class="list-inline-item">
-                <h5 class="location-timezone">Timezone</h5>
-            </li>
-            <li class="list-inline-item">
-                <canvas class="icon align-middle" width="40" height="40"></canvas>
-            </li>
-            <li class="list-inline-item">
-                <h6 class="temperature-degree">20°</h6>
-            </li>
+        <!-- Left -->
+        <ul class="navbar-nav mr-auto">
         </ul>
+
+        <!-- Right -->
+        <button id="weatherBtn" class="btn btn-outline-white my-0" type="submit">
+            <i class="fa fa-cloud-sun"></i> Weather
+        </button>
+
+        <ul id="weatherInfo" class="navbar-nav nav-flex-icons mt-1">   
+          <li class="nav-item">
+            <span class="nav-link location-timezone">Location</span>
+          </li>
+          <li class="nav-item">
+            <canvas class="icon" width="36" height="36"></canvas>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link temperature-degree">21°</span>
+          </li>
+        </ul>
+      </div>
+
+      </div>
     </nav>
+    <!-- Navbar -->
 
+  </header>
+  <!--Main Navigation-->
 
+  <!--Main layout-->
+  <main class="pt-5 mx-lg-5">
+    <div class="container-fluid mt-5">
 
+      <!-- Heading -->
+      <div class="card mb-4 wow fadeIn">
 
-    <!-- Main -->
-    <div id="container" class="container">
+          <!-- Card header -->
+          <div class="blue card-header text-center">
+            QUOTE OF THE DAY
+          </div>
 
-        <!-- Random Quote Generator -->
-        <div class="row">
-            <div class="col-12">
+        <!--Card content-->
+        <div class="card-body d-sm-flex justify-content-between">
+          <blockquote id="quoteDisplay" class="blockquote">
 
-                <div class="card bg-warning mb-0">
-                    <div class="card-body">
-                        <blockquote id="quoteDisplay" class="blockquote mb-0">
-                        </blockquote>
-                    </div>
-                </div>
-
-            </div>
+          </blockquote>
         </div>
+      </div>
+      <!-- Heading -->
 
+      <!--Grid row-->
+      <div class="row wow fadeIn">
 
+        <!--Grid column-->
+        <div class="col-xl-9 col-lg-6 mb-4">
 
-        <div class="row">
+          <!--Card-->
+          <div class="card mt-2 ">
 
-            <!-- Relax App -->
-            <div class="col-md-3">
-                <div class="card bg-warning mb-3">
-                    <div class="card-header">
-                        Time to Relax
-                        
-                    </div>
-                    
-                    <div id="relax" class="card-body">
-                            <h6 class="card-subtitle mb-3 text-muted text-center">Double click to play sounds!</h6>
+            <!-- Card header -->
+            <div class="blue card-header text-center">
+              NOTE
+            </div>
 
-                        <button type="button" class="btn btn-primary btn-block"><img src="img/rain.svg" width="24" height="24" alt="Umbrella image">
-                            Rain
-                            <input type="range" class="form-control-range volume" min="1" max="100" value="20" id="formControlRange">
-                            <audio controls>
-                                <source src="audio/rain.ogg" type="audio/ogg">
-                                <source src="audio/rain.mp3" type="audio/mpeg">
-                            </audio></button>
-
-
-                        <button type="button" class="btn btn-primary btn-block"><img src="img/fire.svg" width="24" height="24" alt="Rain Image"> Fire<input type="range" class="form-control-range volume" min="1" max="100" value="20" id="formControlRange">
-                            <audio controls>
-                                <source src="audio/fire.ogg" type="audio/ogg">
-                                <source src="audio/fire.mp3" type="audio/mpeg">
-                            </audio></button>
-                        <button type="button" class="btn btn-primary btn-block"><img src="img/thunder.svg" width="24" height="24" alt="Thunder Image">Thunder<input type="range" class="form-control-range volume" min="1" max="100" value="20" id="formControlRange">
-                            <audio controls>
-                                <source src="audio/thunder.ogg" type="audio/ogg">
-                                <source src="audio/thunder.mp3" type="audio/mpeg">
-                            </audio></button>
-                    
-
-
-
-                    </div>
-                    <div id="relaxFooter" class="card-footer text-muted">
-                        <button type="button" class="btn btn-danger btn-block">Stop</button>
-
-                    </div>
+            <!--Card content-->
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <textarea value="nota" class="form-control" id="textArea" rows="1" placeholder="Task"></textarea>
                 </div>
+              </form>
+
+              <span id="alert"></span>
+
+              <button type="button" type="submit" value="Submit" class="btn btn-primary"
+                onclick="addNote()">Invia</button>
+              <button type="button" type="reset" value="Reset" class="btn btn-danger" onclick="reset()">Reset</button>
+
+              <div id="lista" class="mt-2">
+
+              </div>
 
             </div>
 
-            <!-- Note App -->
-            <div class="col-md-6">
-                <div class="card bg-warning mb-3">
-                    <div class="card-header">
-                        Note
-                    </div>
-                    <div class="card-body">
-                        <form>
-                            <div class="form-group">
-                                <textarea value="nota" class="form-control" id="textArea" rows="1"></textarea>
-                            </div>
-                        </form>
+          </div>
+          <!--/.Card-->
 
-                        <span id="alert"></span>
-
-                        <button type="button" type="submit" value="Submit" class="btn btn-primary btn-block" onclick="addNote()">Invia</button>
-                        <button type="button" type="reset" value="Reset" class="btn btn-danger btn-block" onclick="reset()">Reset</button>
-
-                        <hr>
-
-                        <ul id="lista" class="list-group">
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Pomodoro technique -->
-            <div class="col-md-3">
-                <div class="card bg-warning mb-3">
-                    <div class="card-header">
-                        Pomodoro technique
-                    </div>
-                    <div id="pomodoro" class="card-body">
-                        <button type="button" class="btn btn-primary btn-block">Start</button>
-                        <button type="button" class="btn btn-danger btn-block">Stop</button>
-
-                        <ul id="timer" class="list-inline text-center mt-3 h2">
-                            <li class="list-inline-item mr-0">00</li>
-                            <li class="list-inline-item mr-0">:</li>
-                            <li class="list-inline-item">00</li>
-                        </ul>
-
-                    </div>
-                    <div id="pomodoroFooter" class="card-footer text-muted">
-                    </div>
-                </div>
-            </div>
         </div>
-        
+        <!--Grid column-->
+
+
+        <!--Grid column-->
+        <div class="col-xl-3 col-lg-6 mb-4">
+
+          <!--Card-->
+          <div class="card mt-2 mb-4">
+
+            <!-- Card header -->
+            <div class="blue card-header text-center">
+              RELAX
+            </div>
+
+            <!--Card content-->
+
+
+            <div id="relax" class="card-body">
+              <h6 class="card-subtitle mb-3 text-muted text-center">Double click to play sounds!</h6>
+
+              <div class="btn blue-gradient btn-block btn-rounded ">Rain
+                <input type="range" class="custom-range volume" min="1" max="100" value="20">
+                <audio>
+                  <source src="audio/rain.ogg" type="audio/ogg">
+                  <source src="audio/rain.mp3" type="audio/mpeg">
+                </audio></div>
+
+              <div class="btn peach-gradient btn-block btn-rounded mt-3">Fire
+                <input type="range" class="custom-range volume" min="1" max="100" value="20">
+                <audio>
+                  <source src="audio/fire.ogg" type="audio/ogg">
+                  <source src="audio/fire.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+
+              <div class="btn purple-gradient btn-block btn-rounded mt-3">Thunder
+                <input type="range" class="custom-range volume" min="1" max="100" value="20">
+                <audio>
+                  <source src="audio/thunder.ogg" type="audio/ogg">
+                  <source src="audio/thunder.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+
+            </div>
+
+            <div id="relaxFooter" class="card-footer text-muted">
+              <button type="button" class="btn btn-danger btn-block">Stop</button>
+            </div>
+
+          </div>
+          <!--/.Card-->
+
+          <!--Card-->
+          <div class="card mt-5 mb-4">
+
+            <!-- Card header -->
+            <div class="blue card-header text-center">
+              POMODORO TECHNIQUE
+            </div>
+
+            <!--Card content-->
+            <div id="pomodoro" class="card-body">
+
+              <ul id="timer" class="list-inline text-center mb-3 h2">
+                <li class="list-inline-item mr-0">00</li>
+                <li class="list-inline-item mr-0">:</li>
+                <li class="list-inline-item">00</li>
+              </ul>
+
+              <button type="button" class="btn btn-primary btn-block">Start</button>
+
+              <button type="button" class="btn btn-danger btn-block mt-3">Stop</button>
+
+            </div>
+            <div id="pomodoroFooter" class="card-footer text-muted">
+
+            </div>
+
+          </div>
+
+        </div>
+        <!--/.Card-->
+
+      </div>
+      <!--Grid column-->
+
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="js/skycons.js"></script>
-    <script src="js/script.js"></script>
+  </main>
+  <!--Main layout-->
+
+  <!--Footer-->
+  <footer class="page-footer text-center font-small primary-color-dark darken-2 mt-4 wow fadeIn">
+
+    <!--Call to action-->
+    <div class="pt-4">
+      <a class="btn btn-outline-white" href="https://github.com/FrancescoArca/HUB-JS" target="_blank"
+        role="button">GITHUB
+        <i class="fab fa-github ml-2"></i>
+      </a>
+      <a class="btn btn-outline-white" href="https://www.francesco-arca.it/" target="_blank" role="button">PORTFOLIO
+        <i class="fas fa-globe ml-2"></i>
+      </a>
+    </div>
+    <!--/.Call to action-->
+
+    <hr class="my-4">
+
+    <!-- Social icons -->
+    <div class="pb-4">
+      <a href="mailto:f.arca@outlook.com" target="_blank">
+        <i class="fa fa-envelope mr-3"></i>
+      </a>
+
+      <a href="https://www.linkedin.com/in/francescoarca/" target="_blank">
+        <i class="fab fa-linkedin mr-3"></i>
+      </a>
+
+      <a href="https://www.instagram.com/francesco__arca/" target="_blank">
+        <i class="fab fa-instagram mr-3"></i>
+      </a>
+    </div>
+    <!-- Social icons -->
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+      © 2019 Copyright:
+      <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
+    </div>
+    <!--/.Copyright-->
+
+  </footer>
+  <!--/.Footer-->
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Custom JS -->
+  <script type="text/javascript" src="js/main.js"></script>
+  <!-- Weather -->
+  <script type="text/javascript" src="js/skycons.js"></script>
+  <!-- Initializations -->
+  <script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+  </script>
+
 </body>
 
 </html>
